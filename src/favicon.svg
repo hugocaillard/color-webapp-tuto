@@ -1,0 +1,13 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes color {
+  0% { fill: #F97316; }
+  25% { fill: #D1C0A8; }
+  50% { fill: #2563EB; }
+  75% { fill: #65A30D; }
+  100% { fill: #F97316; }
+}
+text { animation: color 2s linear 0s infinite }
+</style>
+<text x="45" y="168" style="font: normal 161px sans-serif">Ӿ</text>
+</svg>
