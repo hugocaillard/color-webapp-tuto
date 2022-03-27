@@ -34,8 +34,9 @@ export const useAuth = create<AuthStore>((set) => ({
       } catch (err) {
         console.warn(err)
       }
+    } else {
+      set({ isLoading: false })
     }
-    set({ isLoading: false })
   },
 
   connect: async () => {
