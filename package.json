@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
-    "preact": "^10.5.15"
+    "micro-stacks": "^0.2.4",
+    "preact": "^10.5.15",
+    "zustand": "^3.7.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.1.5",
