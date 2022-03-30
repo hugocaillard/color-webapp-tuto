@@ -1,11 +1,18 @@
+import { useEffect } from 'preact/hooks'
+
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Container } from './components/UI/Container'
 import { useAuth } from './stores/useAuth'
+import { useColorVote } from './stores/useColorVote'
 import { Vote } from './pages/Vote'
 
 export function App() {
   const { session } = useAuth()
+  useEffect(() => {
+    // fetch colors without rerendering App
+    if (session) useColorVote.getState().fetchColors()
+  }, [session])
 
   return (
     <div className="h-screen flex flex-col text-slate-800">

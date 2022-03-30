@@ -13,7 +13,7 @@ export const Circle: FunctionComponent<CircleProps> = ({ fill }) => {
         cy="50"
         r="42"
         fill={fill}
-        strokeWidth="1"
+        strokeWidth="2"
       />
     </svg>
   )
