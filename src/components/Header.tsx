@@ -6,8 +6,6 @@ import { H1 } from './UI/Typography'
 export const Header = () => {
   const { connect, disconnect, session } = useAuth()
 
-  console.log('header rendering')
-
   return (
     <header>
       <Container className="h-16 flex justify-between items-center">
