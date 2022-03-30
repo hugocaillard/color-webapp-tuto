@@ -2,6 +2,7 @@ import create from 'zustand'
 import { cvToTrueValue } from 'micro-stacks/clarity'
 
 import { readOnlyRequest } from '../data/stacks'
+import { randomise } from '../data/array'
 
 export interface Color {
   id: bigint
@@ -27,6 +28,6 @@ export const useColorVote = create<ColorStore>((set, get) => ({
     if (!rawColors) return
 
     const colors = cvToTrueValue(rawColors)
-    if (checkColors(colors)) set({ colors })
+    if (checkColors(colors)) set({ colors: randomise(colors) })
   },
 }))
