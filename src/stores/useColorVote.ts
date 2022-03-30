@@ -14,6 +14,11 @@ interface ColorStore {
   fetchColors: () => Promise<void>
 }
 
+function checkColors(colors: unknown): colors is Color[] {
+  if (!Array.isArray(colors)) return false
+  return colors.reduce((acc, c) => acc && c.value, true)
+}
+
 export const useColorVote = create<ColorStore>((set, get) => ({
   colors: [],
 
@@ -21,7 +26,7 @@ export const useColorVote = create<ColorStore>((set, get) => ({
     const rawColors = await readOnlyRequest('get-colors')
     if (!rawColors) return
 
-    const colors = cvToTrueValue(rawColors) as Color[]
-    set({ colors })
+    const colors = cvToTrueValue(rawColors)
+    if (checkColors(colors)) set({ colors })
   },
 }))
