@@ -1,10 +1,10 @@
 import { FunctionComponent } from 'preact'
 
 interface CircleProps {
-  fill: string
+  hex: string
 }
 
-export const Circle: FunctionComponent<CircleProps> = ({ fill }) => {
+export const Circle: FunctionComponent<CircleProps> = ({ hex }) => {
   return (
     <svg viewBox="0 0 100 100">
       <circle
@@ -12,7 +12,7 @@ export const Circle: FunctionComponent<CircleProps> = ({ fill }) => {
         cx="50"
         cy="50"
         r="42"
-        fill={fill}
+        fill={`#${hex}`}
         strokeWidth="2"
       />
     </svg>

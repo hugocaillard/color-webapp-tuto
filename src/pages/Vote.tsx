@@ -10,10 +10,8 @@ export const Vote = () => {
       <H2>Vote</H2>
       {colors ? (
         <div className="flex">
-          {colors.map((color) => (
-            <div className="w-full" key={color.id}>
-              <Circle fill={`#${color.value}`} />
-            </div>
+          {colors.map((c) => (
+            <Circle key={c.id} hex={c.value} />
           ))}
         </div>
       ) : null}
