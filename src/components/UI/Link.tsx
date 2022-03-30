@@ -8,6 +8,7 @@ export const Link: FunctionalComponent<{ href: string }> = ({
     <a
       className="text-blue-700 hover:text-blue-900 hover:underline transition-colors"
       href={href}
+      target="_blank"
     >
       {children}
     </a>
