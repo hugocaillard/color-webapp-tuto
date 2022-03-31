@@ -1,5 +1,5 @@
+import type { JSX } from 'preact'
 import classNames from 'classnames'
-import { JSX } from 'preact'
 
 export function Button({
   children,
