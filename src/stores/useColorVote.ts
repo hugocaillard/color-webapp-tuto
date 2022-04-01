@@ -21,12 +21,8 @@ interface ColorStore {
   sendVote: () => Promise<void>
 }
 
-const initialVote = new Map([
-  [0n, undefined],
-  [1n, undefined],
-  [2n, undefined],
-  [3n, undefined],
-])
+const ids = [0n, 1n, 2n, 3n] as const
+const initialVote = new Map(ids.map((id) => [id, undefined]))
 
 function isVoteValid(vote: number | undefined): vote is ValidVote {
   if (vote === undefined || isNaN(vote)) return false
@@ -59,12 +55,7 @@ export const useColorVote = create<ColorStore>((set, get) => ({
 
   async sendVote() {
     const { votes } = get()
-    const senderVote = [
-      votes.get(0n),
-      votes.get(1n),
-      votes.get(2n),
-      votes.get(3n),
-    ] as const
+    const senderVote = ids.map((id) => votes.get(id))
     if (!senderVote.every(isVoteValid)) return
 
     await callContract('vote', senderVote.map(uintCV))
