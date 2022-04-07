@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
-    "micro-stacks": "^0.2.4",
+    "micro-stacks": "^0.3.0",
     "preact": "^10.5.15",
     "zustand": "^3.7.1"
   },
