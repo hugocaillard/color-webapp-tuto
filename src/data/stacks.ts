@@ -2,7 +2,7 @@ import { StacksMocknet } from 'micro-stacks/network'
 import { callReadOnlyFunction } from 'micro-stacks/transactions'
 import { ClarityValue } from 'micro-stacks/clarity'
 
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '../stores/useAuth'
 
 const network = new StacksMocknet({
   url: 'http://localhost:3999',
