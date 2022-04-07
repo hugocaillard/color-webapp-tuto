@@ -1,4 +1,4 @@
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from '../stores/useAuth'
 import { Button } from './UI/Button'
 import { Container } from './UI/Container'
 import { H1 } from './UI/Typography'

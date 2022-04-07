@@ -1,7 +1,7 @@
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Container } from './components/UI/Container'
-import { useAuth } from './hooks/useAuth'
+import { useAuth } from './stores/useAuth'
 import { Vote } from './pages/Vote'
 
 export function App() {
