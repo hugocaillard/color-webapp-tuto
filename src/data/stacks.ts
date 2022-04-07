@@ -8,7 +8,7 @@ import {
 
 import { useAuth, appDetails } from '../stores/useAuth'
 
-const network = new StacksMocknet({
+export const network = new StacksMocknet({
   url: 'http://localhost:3999',
 })
 
