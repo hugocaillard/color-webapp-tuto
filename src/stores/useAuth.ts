@@ -1,6 +1,8 @@
 import { StacksSessionState, authenticate } from 'micro-stacks/connect'
 import create from 'zustand'
 
+import { useColorVote } from './useColorVote'
+
 interface AuthStore {
   session: StacksSessionState | null
   connect: () => Promise<void>
@@ -29,6 +31,7 @@ export const useAuth = create<AuthStore>((set) => ({
 
   disconnect: () => {
     set({ session: null })
+    useColorVote.getState().resetAll()
     localStorage.clear()
   },
 
