@@ -1,19 +1,30 @@
 import type { JSX } from 'preact'
-
 import { LastVote } from '../components/LastVote'
 import { Button } from '../components/UI/Button'
 import { Circle } from '../components/UI/svg/Circle'
 import { H2 } from '../components/UI/Typography'
-import { useColorVote } from '../stores/useColorVote'
 import { VoteInput } from '../components/UI/VoteInput'
+import { useColorVote } from '../stores/useColorVote'
 
 export const Vote = () => {
-  const { colors, vote, isValid, updateVote, sendVote, resetVote } =
-    useColorVote()
+  const {
+    colors,
+    vote,
+    isValid,
+    alreadyVoted,
+    updateVote,
+    sendVote,
+    unvote,
+    resetVote,
+  } = useColorVote()
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
     sendVote()
+  }
+  const handleUnvote: JSX.MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.preventDefault()
+    unvote()
   }
 
   return (
@@ -38,9 +49,14 @@ export const Vote = () => {
             </div>
             <div class="mt-6 flex justify-center gap-4">
               <Button type="submit" disabled={!isValid}>
-                Vote
+                {alreadyVoted ? 'Revote' : 'Vote'}
               </Button>
               <Button type="reset">Empty form</Button>
+              {alreadyVoted ? (
+                <Button type="button" onClick={handleUnvote}>
+                  Cancel vote
+                </Button>
+              ) : null}
             </div>
           </form>
         ) : (

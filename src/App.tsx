@@ -10,8 +10,11 @@ import { Vote } from './pages/Vote'
 export function App() {
   const { session } = useAuth()
   useEffect(() => {
-    // fetch colors without rerendering App
-    if (session) useColorVote.getState().fetchColors()
+    if (session) {
+      const { fetchVote, fetchColors } = useColorVote.getState()
+      fetchVote()
+      fetchColors()
+    }
   }, [session])
 
   return (
