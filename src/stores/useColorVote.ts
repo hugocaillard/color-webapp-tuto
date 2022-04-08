@@ -76,8 +76,8 @@ export const useColorVote = create<ColorStore>((set, get) => ({
   },
 
   async sendVote() {
-    const { vote: votes } = get()
-    const senderVote = ids.map((id) => votes.get(id))
+    const { vote } = get()
+    const senderVote = ids.map((id) => vote.get(id))
     if (!senderVote.every(isValueValid)) return
 
     const txId = await callContract('vote', senderVote.map(uintCV))
