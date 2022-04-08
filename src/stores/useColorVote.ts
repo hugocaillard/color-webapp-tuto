@@ -109,17 +109,20 @@ export const useColorVote = create<ColorStore>((set, get) => ({
     const senderVote = ids.map((id) => vote.get(id))
     if (!senderVote.every(isValueValid)) return
 
-    const name = alreadyVoted ? 'revote' : 'vote'
-    const txId = await callContract(name, senderVote.map(uintCV))
+    const txId = await callContract(
+      alreadyVoted ? 'revote' : 'vote',
+      senderVote.map(uintCV),
+    )
     saveTx(txId)
   },
 
   async unvote() {
-    const { alreadyVoted } = get()
+    const { alreadyVoted, saveTx } = get()
     if (!alreadyVoted) return
+
     const txId = await callContract('unvote')
-    localStorage.setItem('txId', txId)
-    set({ vote: getVoteMap(), txId })
+    set({ vote: getVoteMap() })
+    saveTx(txId)
   },
 
   async fetchLastTx() {
