@@ -48,6 +48,7 @@ export async function callContract(name: string, args: ClarityValue[] = []) {
   if (!key || !address) return Promise.reject(new Error())
 
   const token = await makeContractCallToken({
+    nonce: 1,
     appDetails,
     network,
     contractAddress: ADDRESS,
